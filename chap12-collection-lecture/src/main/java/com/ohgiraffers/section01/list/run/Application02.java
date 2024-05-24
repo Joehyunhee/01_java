@@ -8,6 +8,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import static java.util.Collections.*;
+
 public class Application02 {
     public static void main(String[] args) {
 
@@ -19,7 +21,9 @@ public class Application02 {
         bookList.add(new BookDTO(4,"삼국사기","김부식",45000));
         bookList.add(new BookDTO(5,"삼국유사","일연",58000));
 
-        // Collections.sort(bookList);
+//        System.out.println("컬렉션 sort 정렬 =========");
+//        Collections.sort(bookList);
+//        System.out.println(bookList);
 
         for (BookDTO bookDTO:bookList) {
             System.out.println(bookDTO);
@@ -29,6 +33,7 @@ public class Application02 {
         bookList.sort(new AscendingPrice());
         for (BookDTO bookDTO:bookList) {
             System.out.println(bookDTO);
+
         }
 
         System.out.println("책 제목을 기준으로 오름차순 정렬 =======");
@@ -47,7 +52,7 @@ public class Application02 {
         bookList.sort(new Comparator<BookDTO>() {
             @Override
             public int compare(BookDTO o1, BookDTO o2) {
-                return o1.getAuthor().compareTo(o2.getAuthor());
+                return o1.getAuthor().compareTo(o2.getAuthor()) *-1 ;
             }
         });
         for (BookDTO bookDTO:bookList) {
